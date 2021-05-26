@@ -34,6 +34,10 @@ It correctly bundles app in production mode and optimizes the build for the best
 
 Your app is ready to be deployed!
 
+### `npm run start`
+
+To start the application and view the output in root directory io/output.txt
+
 ### `npm run lint`
 
 This is to check for linting issues<br />
