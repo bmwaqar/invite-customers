@@ -1,5 +1,3 @@
-import { tmpdir } from 'os';
-import { appStartDir } from '../../constants';
 import { outputCustomers, rawCustomersData } from '../../mockData/customersMockData';
 import {
   corruptFilPath,
@@ -10,16 +8,6 @@ import {
   wrongOutputFilePath,
 } from '../../mockData/filesMockData';
 import FileProcessor from '../FileProcessor';
-console.log({
-  corruptFilPath,
-  emptyFilPath,
-  inputFilePath,
-  outputFilePath,
-  wrongInputFilePath,
-  tmpdir: tmpdir(),
-  appStartDir,
-  wrongOutputFilePath,
-});
 describe('FileProcessor', () => {
   let fileProcessor: FileProcessor;
   beforeEach(() => {
@@ -59,19 +47,6 @@ describe('FileProcessor', () => {
     it(`should not write customers to file with ${wrongOutputFilePath}`, () => {
       return expect(fileProcessor.writeLineByLine(wrongOutputFilePath, customers)).resolves.toBeUndefined();
     });
-
-    // it('should contain some data', () => {
-    //   return expect(readFromFile(inputFilePath)).resolves.toMatchObject(rawCustomersData);
-    // });
-    // it('should not contain some data', () => {
-    //   return expect(readFromFile(wrongInputFilePath)).resolves.not.toBeDefined();
-    // });
-    // it('should contain no data', () => {
-    //   return expect(readFromFile(emptyFilPath)).resolves.toMatchObject([]);
-    // });
-    // it('should match snapshot of corrupt data', () => {
-    //   return expect(readFromFile(corruptFilPath)).resolves.toMatchSnapshot();
-    // });
   });
 });
 

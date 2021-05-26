@@ -13,14 +13,12 @@ const moduleName = 'AppStart';
 const logger = { log: log.extend(moduleName), error: error.extend(moduleName) };
 (async () => {
   try {
-    logger.error('test');
-    logger.log({ inputFileName, outputFileName });
     const fileProcessor = new FileProcessor();
+    logger.log({ inputFileName, outputFileName, inputFilePath: fileProcessor.filePath(inputFileName) });
     const rawData: string[] | undefined = await fileProcessor.readLineByLine(fileProcessor.filePath(inputFileName));
     logger.log({ rawData });
     if (!rawData) return;
     const customers: RawCustomerMap = getCustomersIn100KmRangeOfDublin(rawData);
-    console.log(customers);
     fileProcessor.writeLineByLine(fileProcessor.filePath(outputFileName), Object.values(customers));
   } catch (err) {
     logger.error(err);
