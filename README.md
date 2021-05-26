@@ -6,6 +6,10 @@ Invite customers which are within 100Km of Dublin
 
 In the project directory, you can run:
 
+### `npm i`
+
+To install all the dependancies of the application<br />
+
 ### `npm run dev`
 
 Runs the app in the development mode.<br />
