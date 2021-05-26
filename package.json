@@ -15,6 +15,7 @@
     "@types/node": "^15.3.0",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
+    "cross-env": "^7.0.3",
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.2",
@@ -34,12 +35,12 @@
     "typescript": "^4.2.4"
   },
   "scripts": {
-    "build": "tsc --project ./",
-    "start": "tsc && node build/src/index.js",
-    "dev": "nodemon --watch src/**/*.ts --exec ts-node src/index.ts",
-    "test": "jest --coverage",
-    "test:watch": "jest --coverage --watchAll",
-    "view:coverage": "serve coverage/lcov-report",
+    "build": "cross-env NODE_ENV=production tsc --project ./",
+    "start": " tsc && cross-env NODE_ENV=production node build/src/index.js",
+    "dev": "cross-env NODE_ENV=development nodemon --watch src/**/*.ts --exec ts-node src/index.ts",
+    "test": "cross-env NODE_ENV=test jest --coverage",
+    "test:watch": "cross-env NODE_ENV=test jest --coverage --watchAll",
+    "view:coverage": "cross-env NODE_ENV=development serve coverage/lcov-report",
     "clean": "rm -rf coverage src/**/*.js src/**/*.map",
     "lint": "eslint src/**/*.ts",
     "format": "eslint src/**/*.ts --fix"
