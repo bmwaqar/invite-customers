@@ -1,0 +1,13 @@
+{
+  "customers": {
+    "inputFile": {
+      "name": "customers.txt",
+      "path": "C:/VS Code/Node/InviteCustomers/io"
+    },
+    "outputFile": {
+      "name": "output.txt",
+      "path": "C:/VS Code/Node/InviteCustomers/io"
+    }
+  },
+  "debug": "InviteCustomers*"
+}
